@@ -47,11 +47,26 @@
           </a>
           <a class="brand" href="#">Ikatere</a>
           <div class="container-fluid nav-collapse">
+			<form class="navbar-search pull-left">
+		      <input type="text" class="search-query" placeholder="Find fishing places">
+		    </form>
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Advanced Search", "/path1"  %></li>
             </ul>
+			<ul class="nav pull-right">
+			  <li class="dropdown">
+			    <a href="#"
+				class="dropdown-toggle"
+				data-toggle="dropdown">
+				Username
+				<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+				  <%= render 'devise/menu/registration_items' %>
+				  <%= render 'devise/menu/login_items' %>
+				</ul>
+			  </li>
+			</ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
