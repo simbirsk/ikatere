@@ -48,7 +48,6 @@
           <a class="brand" href="#">Ikatere</a>
           <div class="container-fluid nav-collapse">
 			<form class="navbar-search pull-left">
-		      <input type="text" class="search-query" placeholder="Find fishing places">
 		      <input type="text" class="search-query" placeholder="Find fishing places" />
 		    </form>
             <ul class="nav">
@@ -88,7 +87,6 @@
     <%= javascript_include_tag "application" %>
 	<%= yield :scripts %>
 	
-	<script>
 	<script type="text/javascript">
 		$(window).on('load resize', function() {
 			$(".map_container").height(($(window).height()-40)+"px");
