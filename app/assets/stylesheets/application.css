@@ -12,3 +12,10 @@
  *= require bootstrap_and_overrides
  *= require_tree
  */
+
+.container-main {
+	margin-top: 20px;
+}
+.control-group small {
+	font-size: 80%;
+}

@@ -1,0 +1,30 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+	  <%= link_to "Ikatere", root_path, :class => "brand" %>
+      <div class="container-fluid nav-collapse">
+		<form class="navbar-search pull-left">
+	      <input type="text" class="search-query" placeholder="Find fishing places" />
+	    </form>
+        <ul class="nav">
+          <li><%= link_to "Advanced Search", "/search"  %></li>
+		  <li class="divider-vertical"</li>
+		  <li>
+			<button class="btn btn-success" type="submit">
+		  	  <i class="icon-map-marker icon-white"></i>
+			  Submit a place
+			</button>
+		  </li>	
+        </ul>
+		<ul class="nav pull-right">
+			<%= render "/layouts/user_dropdown" %>
+		</ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
