@@ -1,0 +1,8 @@
+<%= simple_form_for @location do |f|%>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.input :name, :label => false, :placeholder => "location name" %>
+	<%= f.hidden_field :address %>
+	<%= f.hidden_field :latitude %>
+	<%= f.hidden_field :longitude %>
+	<%= f.button :submit, :class => "btn-primary pull-right" %>
+<% end %>

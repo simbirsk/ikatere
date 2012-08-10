@@ -7,6 +7,7 @@
 <% content_for :scripts do %>
     <script type="text/javascript" charset="utf-8">
         var markersArray = [];
+		var control = false;
         // On click, clear markers, place a new one, update coordinates in the form
         Gmaps.map.callback = function() {
             google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
@@ -17,8 +18,8 @@
         };
         // Update form attributes with given coordinates
         function updateFormLocation(latLng) {
-            $('#location_attributes_latitude').val(latLng.lat());
-            $('#location_attributes_longitude').val(latLng.lng());
+            $('#location_latitude').val(latLng.lat());
+            $('#location_longitude').val(latLng.lng());
             $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
         }
         // Add a marker with an open infowindow
@@ -31,7 +32,7 @@
             markersArray.push(marker);
             // Set and open infowindow
             var infowindow = new google.maps.InfoWindow({
-                content: '<div class="popup"><h2>New place</h2><p>Drag me and adjust the zoom level.</p>'
+                content: ''
             });
             infowindow.open(Gmaps.map.serviceObject,marker);
             // Listen to drag & drop
@@ -50,6 +51,8 @@
         }
     </script>
 <% end %>
+
+<%= render "/locations/hidden_form" %>
 
 <%= render "layouts/modal_login" %>
 <%= render "layouts/modal_register" %>
