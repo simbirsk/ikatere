@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+	<th>Owner</th>
     <th>Name</th>
     <th>Address</th>
     <th>Latitude</th>
@@ -13,6 +14,7 @@
 
 <% @locations.each do |location| %>
   <tr>
+	<td><%= location.user.try(:username) %></td>
     <td><%= location.name %></td>
     <td><%= location.address %></td>
     <td><%= location.latitude %></td>
