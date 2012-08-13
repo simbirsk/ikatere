@@ -22,3 +22,12 @@
 .modal form {
 	margin-bottom: 0;
 }
+.addMode-alert {
+	position: fixed;
+	bottom: 100px;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	color: #ffffff;
+	display: none;
+}

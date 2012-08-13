@@ -14,22 +14,35 @@
 
 <% content_for :scripts do %>
     <script type="text/javascript" charset="utf-8">
-        var markersArray = [];
-		var control = false;
+		var addMode = false;
+		var markersArray = [];
         // On click, clear markers, place a new one, update coordinates in the form
+		function startAddMode () {
+			addMode = true;
+			$('.addMode-alert').fadeIn();
+			$('#startAddMode').hide();
+			$('#cancelAddMode').fadeIn();
+		}
+		function cancelAddMode () {
+			addMode = false;
+			$('.addMode-alert').fadeOut();
+			$('#cancelAddMode').hide();
+			$('#startAddMode').fadeIn();
+		}
         Gmaps.map.callback = function() {
             google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
-              clearOverlays();
-              placeMarker(event.latLng);
-              updateFormLocation(event.latLng);
-            });
+				if (addMode == true) {
+	              clearOverlays();
+	              placeMarker(event.latLng);
+	              updateFormLocation(event.latLng);
+				}
+            });				
         };
-        // Update form attributes with given coordinates
+        // Update form attributes with given coordinates and clone form to InfoWindow
         function updateFormLocation(latLng) {
             $('#location_latitude').val(latLng.lat());
             $('#location_longitude').val(latLng.lng());
             $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
-			infowindow.setContent($('.newLocation').clone()[0]);
         }
         // Add a marker with an open infowindow
         function placeMarker(latLng) {
@@ -58,9 +71,13 @@
             }
           }
           markersArray.length = 0;
-        }
+        }	
     </script>
 <% end %>
+
+<div class="addMode-alert">
+	Click anywhere on the map to add a new fishing location
+</div>
 
 <%= render "layouts/modal_login" %>
 <%= render "layouts/modal_register" %>

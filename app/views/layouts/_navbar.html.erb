@@ -15,9 +15,13 @@
           <li><%= link_to "Advanced Search", "/search"  %></li>
 		  <li class="divider-vertical"</li>
 		  <li>
-			<button class="btn btn-success" type="submit">
+			<button id="startAddMode" class="btn btn-success" type="submit" onclick="startAddMode()">
 		  	  <i class="icon-map-marker icon-white"></i>
 			  Submit a place
+			</button>
+			<button id="cancelAddMode" class="btn btn-danger" type="submit" onclick="cancelAddMode()" style="display: none;">
+		  	  <i class="icon-map-marker icon-white"></i>
+			  Cancel submission
 			</button>
 		  </li>	
         </ul>
