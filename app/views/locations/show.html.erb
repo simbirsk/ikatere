@@ -1,11 +1,22 @@
-<div class="container">
-	<p id="notice"><%= notice %></p>
+<div class="container show-location">
+	<div class="row">
+		<div class="span8">
+			<p id="notice"><%= notice %></p>
 
-	<h1><%= @location.name %></h1>
-	
-	<%= @location.latitude %>
-	<%= @location.longitude %>
+			<h1><%= @location.name %></h1>
 
-	<%= link_to 'Edit', edit_location_path(@location) %> |
-	<%= link_to 'Back', locations_path %>
+			<%= link_to 'Edit', edit_location_path(@location) %> |
+			<%= link_to 'Back', locations_path %>
+		</div>
+		<div class="span4">
+			<%= gmaps({
+			  "map_options" => {"auto_zoom" => false, "zoom" => 15, "type" => "SATELLITE", "minZoom" => 2 },
+			  "markers"     => {"data" => @json }
+			 })
+			%>
+			<h3>
+				Species
+			</h3>
+		</div>
+	</div>
 </div>

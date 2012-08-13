@@ -37,3 +37,8 @@ width: 800px;
 	height: 400px;
 	border:#555555 2px solid;
 }
+
+.show-location .gmaps4rails_map,
+.show-location .map_container {
+	height: 300px;
+}

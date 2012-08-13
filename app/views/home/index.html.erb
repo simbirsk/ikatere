@@ -1,5 +1,5 @@
 <%= gmaps({
-  "map_options" => {"auto_zoom" => false, "zoom" => 2, "type" => "SATELLITE", "minZoom" => 2 },
+  "map_options" => {"auto_zoom" => false, "zoom" => 2, "type" => "SATELLITE", "minZoom" => 2},
   "markers"     => {"data" => @json }
  })
 %>
@@ -74,6 +74,11 @@
           markersArray.length = 0;
         }	
     </script>
+	<script type="text/javascript">
+		$(window).on('load resize', function() {
+			$(".map_container").height(($(window).height()-40)+"px");
+		});
+	</script>
 <% end %>
 
 <div class="addMode-alert">

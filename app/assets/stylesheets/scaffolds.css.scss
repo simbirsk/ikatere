@@ -59,3 +59,14 @@ div {
     font-size: 12px;
     list-style: square; } }
 */
+
+.navbar-fixed-top .brand {
+    color: #000000;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+    -webkit-transition: all 0.2s linear;
+       -moz-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+         -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+}
