@@ -28,6 +28,7 @@
 			$('.addMode-alert').fadeOut();
 			$('#cancelAddMode').hide();
 			$('#startAddMode').fadeIn();
+			clearOverlays();
 		}
         Gmaps.map.callback = function() {
             google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {

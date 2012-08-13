@@ -1,25 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @location.name %>
-</p>
+	<h1><%= @location.name %></h1>
+	
+	<%= @location.latitude %>
+	<%= @location.longitude %>
 
-<p>
-  <b>Address:</b>
-  <%= @location.address %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%= @location.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @location.longitude %>
-</p>
-
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+	<%= link_to 'Edit', edit_location_path(@location) %> |
+	<%= link_to 'Back', locations_path %>
+</div>
