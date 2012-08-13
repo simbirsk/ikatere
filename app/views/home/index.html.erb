@@ -4,6 +4,14 @@
  })
 %>
 
+<% if user_signed_in? %>
+	<div style="display: none;">
+		<div class="newLocation">
+			<%= render "/locations/hidden_form" %>
+		</div>
+	</div>
+<% end %>
+
 <% content_for :scripts do %>
     <script type="text/javascript" charset="utf-8">
         var markersArray = [];
@@ -21,6 +29,7 @@
             $('#location_latitude').val(latLng.lat());
             $('#location_longitude').val(latLng.lng());
             $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
+			infowindow.setContent($('.newLocation').clone()[0]);
         }
         // Add a marker with an open infowindow
         function placeMarker(latLng) {
@@ -34,6 +43,7 @@
             var infowindow = new google.maps.InfoWindow({
                 content: ''
             });
+			infowindow.setContent($('.newLocation').clone()[0]);
             infowindow.open(Gmaps.map.serviceObject,marker);
             // Listen to drag & drop
             google.maps.event.addListener(marker, 'dragend', function() {
@@ -51,8 +61,6 @@
         }
     </script>
 <% end %>
-
-<%= render "/locations/hidden_form" %>
 
 <%= render "layouts/modal_login" %>
 <%= render "layouts/modal_register" %>
