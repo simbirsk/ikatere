@@ -3,7 +3,7 @@
 		<div class="span8">
 			<p id="notice"><%= notice %></p>
 
-			<h1><%= @location.name %></h1>
+			<h1><%= @location.name %> <small>created by <%= @location.user.try(:username) %> on <%= l @location.created_at, :format => :long %></small></h1>
 
 			<%= link_to 'Edit', edit_location_path(@location) %> |
 			<%= link_to 'Back', locations_path %>
