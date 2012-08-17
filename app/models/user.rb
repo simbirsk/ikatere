@@ -24,4 +24,5 @@ class User < ActiveRecord::Base
   end
   
   has_many :locations
+  has_many :reviews
 end

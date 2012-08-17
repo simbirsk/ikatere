@@ -14,4 +14,5 @@ class Location < ActiveRecord::Base
   end
   
   belongs_to :user
+  has_many :reviews
 end

@@ -1,6 +1,8 @@
 Ikatere::Application.routes.draw do
 
-  resources :locations
+  resources :locations do
+    resources :reviews
+  end
 
   root :to => 'home#index'
 
