@@ -1,22 +1,42 @@
 <div class="container show-location">
-	<div class="row">
-		<div class="span8">
-			<p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="span8">
+      <p id="notice"><%= notice %></p>
 
-			<h1><%= @location.name %> <small>created by <%= @location.user.try(:username) %> on <%= l @location.created_at, :format => :long %></small></h1>
+      <h1><%= @location.name %> <small>created by <%= @location.user.try(:username) %> on <%= l @location.created_at, :format => :long %></small></h1>
 
-			<%= link_to 'Edit', edit_location_path(@location) %> |
-			<%= link_to 'Back', locations_path %>
-		</div>
-		<div class="span4">
-			<%= gmaps({
-			  "map_options" => {"auto_zoom" => false, "zoom" => 15, "type" => "SATELLITE", "minZoom" => 2 },
-			  "markers"     => {"data" => @json }
-			 })
-			%>
-			<h3>
-				Species
-			</h3>
-		</div>
-	</div>
+      <h2>Reviews</h2>
+      <% @location.reviews.each do |review| %>
+          <div class="well">
+            <p>
+              <%= review.body %>
+            </p>
+
+            <p>
+              Written by <%= review.user.try(:username) %> on <%= l review.created_at, :format => :long %>
+            </p>
+          </div>
+      <% end %>
+
+      <%= simple_form_for([@location, @location.reviews.build]) do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :location_id, value: @location.id %>
+          <%= f.input :body, :label => 'Write your review', :input_html => { :class => 'span8', :rows => 3 } %>
+          <%= f.button :submit %>
+      <% end %>
+
+      <%= link_to 'Edit', edit_location_path(@location) %> |
+      <%= link_to 'Back', locations_path %>
+    </div>
+    <div class="span4">
+      <%= gmaps({
+                        "map_options" => {"auto_zoom" => false, "zoom" => 15, "type" => "SATELLITE", "minZoom" => 2 },
+                        "markers"     => {"data" => @json }
+                })
+      %>
+      <h3>
+        Species
+      </h3>
+    </div>
+  </div>
 </div>
