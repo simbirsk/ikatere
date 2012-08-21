@@ -10,6 +10,7 @@ gem 'gmaps4rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
