@@ -1,8 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin round-corners($amount: $default_rounded_amount) {
+  border-radius: $amount;
+  -moz-border-radius: $amount;
+  -webkit-border-radius: $amount;
+}
+
 .infobox-clear {
+  @include round-corners(5px);
   border: 1px solid #aaaaaa;
   background: #eeeeee;
   padding: 10px;
 }
+
