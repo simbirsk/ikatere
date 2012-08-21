@@ -1,6 +1,11 @@
 <%= gmaps({
-  "map_options" => {"auto_zoom" => false, "zoom" => 2, "type" => "SATELLITE", "minZoom" => 2},
-  "markers"     => {"data" => @json, "options" => {"custom_infowindow_class" => "infobox-clear clearfix"} }
+  "map_options" => {"auto_zoom" => false,
+                    "zoom" => 2,
+                    "type" => "SATELLITE",
+                    "minZoom" => 2},
+  "markers"     => {"data" => @json,
+                    "options" => {"custom_infowindow_class" => "infobox-clear clearfix",
+                                  "do_clustering" => true} }
  })
 %>
 
