@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+    <%= simple_form_for([@location, @location.reviews.build]) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :location_id, value: @location.id %>
+        <%= f.input :body, :label => 'Write your review', :input_html => { :class => 'span8', :rows => 3 } %>
+        <%= f.button :submit %>
+    <% end %>
+<% end %>
