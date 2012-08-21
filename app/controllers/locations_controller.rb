@@ -1,15 +1,5 @@
 class LocationsController < ApplicationController
-  # GET /locations
-  # GET /locations.json
-  def index
-    @locations = Location.all
-    @json = Location.all.to_gmaps4rails
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @locations }
-    end
-  end
+  before_filter :authenticate_user!, :except => :show
 
   # GET /locations/1
   # GET /locations/1.json
@@ -20,6 +10,18 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @location }
+    end
+  end
+
+  # GET /locations
+  # GET /locations.json
+  def index
+    @locations = Location.all
+    @json = Location.all.to_gmaps4rails
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @locations }
     end
   end
 
