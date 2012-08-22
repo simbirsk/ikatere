@@ -7,7 +7,7 @@ class Location < ActiveRecord::Base
   validates :latitude, :presence => true, :unless => lambda { address? }
   validates :user_id, :presence => true
   validates :terrain_id, :presence => true
-  validates_presence_of :terrian_id
+  validates_presence_of :terrain_id
   
   acts_as_gmappable :validation => false
 
