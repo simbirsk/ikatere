@@ -18,4 +18,6 @@ class Location < ActiveRecord::Base
   belongs_to :user
   belongs_to :terrain
   has_many :reviews
+  has_many :shoals
+  has_many :fishes, :through => :shoals
 end

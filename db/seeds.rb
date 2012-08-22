@@ -17,3 +17,10 @@ Terrain.create name: 'River'
 Terrain.create name: 'River Mouth'
 Terrain.create name: 'Lake'
 Terrain.create name: 'Pond'
+
+Fish.create name: 'Diplodus Sargus Sargus'
+Fish.create name: 'Dicentrarchus Labrax'
+
+Technique.create name: 'Spinning'
+Technique.create name: 'Surfcasting'
+Technique.create name: 'Spearfishing'
