@@ -16,12 +16,12 @@
 		  <li class="divider-vertical"</li>
 		  <li>
             <% if user_signed_in? %>
-                <button id="startAddMode" class="btn btn-success" type="submit" onclick="startAddMode()">
+                <button id="startAddMode" class="btn btn-success btn-small" type="submit" onclick="startAddMode()">
                   <i class="icon-map-marker icon-white"></i>
                   Submit a place
                 </button>
             <% end %>
-			<button id="cancelAddMode" class="btn btn-danger" type="submit" onclick="cancelAddMode()" style="display: none;">
+			<button id="cancelAddMode" class="btn btn-danger btn-small" type="submit" onclick="cancelAddMode()" style="display: none;">
 		  	  <i class="icon-map-marker icon-white"></i>
 			  Cancel submission
 			</button>
