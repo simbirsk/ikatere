@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Terrains
+Terrain.create name: 'Beach'
+Terrain.create name: 'Rock'
+Terrain.create name: 'Coastal Waters'
+Terrain.create name: 'Open Sea'
+Terrain.create name: 'Dock'
+Terrain.create name: 'Bridge'
+Terrain.create name: 'River'
+Terrain.create name: 'River Mouth'
+Terrain.create name: 'Lake'
+Terrain.create name: 'Pond'
