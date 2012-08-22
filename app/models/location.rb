@@ -1,11 +1,13 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address, :latitude, :longitude, :name, :user_id
+  attr_accessible :address, :latitude, :longitude, :name, :user_id, :terrain_id
   
   validates :name, :presence => true
   validates :address, :presence => true, :unless => lambda { longitude? && latitude? }
   validates :longitude, :presence => true, :unless => lambda { address? }
   validates :latitude, :presence => true, :unless => lambda { address? }
   validates :user_id, :presence => true
+  validates :terrain_id, :presence => true
+  validates_presence_of :category
   
   acts_as_gmappable :validation => false
 
@@ -14,5 +16,6 @@ class Location < ActiveRecord::Base
   end
   
   belongs_to :user
+  belongs_to :terrain
   has_many :reviews
 end
