@@ -1,5 +1,7 @@
 Ikatere::Application.routes.draw do
 
+  resources :fish
+
   resources :locations do
     resources :reviews
   end
