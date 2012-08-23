@@ -5,7 +5,17 @@
 
       <h1><%= @location.name %> <small>created by <%= @location.user.try(:username) %> on <%= l @location.created_at, :format => :long %></small></h1>
 
-      <h2>Reviews</h2>
+      <h2>
+        Reviews
+        <% if !user_signed_in? %>
+            <small>
+              <%= link_to "Login", "#loginModal", "data-toggle" => "modal", "role" => "button" %>
+              or
+              <%= link_to "Sign Up", "#registerModal", "data-toggle" => "modal", "role" => "button" %>
+              to write your own review!
+            </small>
+        <% end %>
+      </h2>
       <% @location.reviews.each do |review| %>
           <div class="well">
             <p>
