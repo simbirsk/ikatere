@@ -1,0 +1,13 @@
+<%= simple_form_for ([@location, @review]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.hidden_field :user_id%>
+      <%= f.hidden_field :location_id%>
+      <%= f.input :body, :label => 'Edit your review', :input_html => { :class => 'span8', :rows => 3 } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

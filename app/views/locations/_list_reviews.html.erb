@@ -3,9 +3,11 @@
       <p>
         <%= review.body %>
       </p>
-
       <p>
-        Written by <%= review.user.try(:username) %> on <%= l review.created_at, :format => :long %>
+        Written by <%= review.user.try(:username) %> on <%= l review.updated_at, :format => :long %>
       </p>
+      <% if review.user == current_user  %>
+        This review is yours, you can <%= link_to 'Edit It', edit_location_review_path(@location) %>
+      <% end %>
     </div>
 <% end %>

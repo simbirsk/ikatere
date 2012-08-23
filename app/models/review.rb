@@ -7,4 +7,5 @@ class Review < ActiveRecord::Base
   validates :body, :presence => true
   validates :user_id, :presence => true
   validates :location_id, :presence => true
+  validates_uniqueness_of :user_id, :scope => :location_id #TODO criar notificaçom do erro (locations/show)
 end
