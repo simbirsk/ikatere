@@ -29,4 +29,18 @@ class ReviewsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @location = Location.find(params[:location_id])
+    @review = @location.reviews.find(params[:id])
+    @review.destroy
+
+    respond_to do |format|
+
+      format.html { redirect_to location_path(@location), notice: 'Your review was successfully deleted.' }
+      format.json { head :no_content }
+
+    end
+
+  end
 end
