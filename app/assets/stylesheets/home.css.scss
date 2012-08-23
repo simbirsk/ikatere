@@ -13,5 +13,16 @@
   border: 1px solid #aaaaaa;
   background: #eeeeee;
   padding: 10px;
+  margin-top: 5px;
 }
-
+.infobox-clear:after {
+  content: ' ';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #eeeeee;
+  position: absolute;
+  top: -5px;
+  left: 134px;
+}
