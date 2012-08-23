@@ -3,7 +3,8 @@
     <div class="span8">
       <p id="notice"><%= notice %></p>
 
-      <h1><%= @location.name %> <small>created by <%= @location.user.try(:username) %> on <%= l @location.created_at, :format => :long %></small></h1>
+      <h1><%= @location.name %> <small>discovered by <%= @location.user.try(:username) %></small></h1>
+      <hr class="divider" />
 
       <h2>
         Reviews
@@ -16,18 +17,7 @@
             </small>
         <% end %>
       </h2>
-      <% @location.reviews.each do |review| %>
-          <div class="well">
-            <p>
-              <%= review.body %>
-            </p>
-
-            <p>
-              Written by <%= review.user.try(:username) %> on <%= l review.created_at, :format => :long %>
-            </p>
-          </div>
-      <% end %>
-
+      <%= render :partial => 'list_reviews' %>
       <%= render :partial => 'reviews/form' %>
 
       <%= link_to 'Edit', edit_location_path(@location) %> |
@@ -39,9 +29,13 @@
                         "markers"     => {"data" => @json }
                 })
       %>
-      <h3>
+      <h2>
         Species
-      </h3>
+        <small>
+          What's people fishing here?
+        </small>
+      </h2>
+      <%= render :partial => 'list_shoals' %>
     </div>
   </div>
 </div>
