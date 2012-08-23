@@ -1,0 +1,11 @@
+<% @location.reviews.each do |review| %>
+    <div class="well">
+      <p>
+        <%= review.body %>
+      </p>
+
+      <p>
+        Written by <%= review.user.try(:username) %> on <%= l review.created_at, :format => :long %>
+      </p>
+    </div>
+<% end %>
