@@ -1,7 +1,14 @@
-<ul>
-  <% @location.shoals.each do |shoal| %>
-      <li>
-        <%= shoal.fish.name %>
-      </li>
-  <% end %>
-</ul>
+
+<% if @location.shoals.blank? %>
+    <div class="alert alert-info">
+      <p>Nobody has shared any catch for this location by the moment. Be the first!</p>
+    </div>
+<% else %>
+    <ul>
+      <% @location.shoals.each do |shoal| %>
+          <li>
+            <%= shoal.fish.name %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>
