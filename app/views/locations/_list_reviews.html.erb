@@ -4,10 +4,10 @@
         <%= review.body %>
       </p>
       <p>
-        Written by <%= review.user.try(:username) %> on <%= l review.updated_at, :format => :long %>
+        Written by <%= review.user.try(:username) %> on <%= l review.updated_at, :format => :long %> <!-- TODO Tirar a hora -->
       </p>
       <% if review.user == current_user  %>
-        This review is yours, you can <%= link_to 'Edit It', edit_location_review_path(@location) %>
+        This review is yours, you can <%= link_to 'edit', edit_location_review_path(review.location, review) %> or <%= link_to 'delete', [review.location, review], :confirm => "Are you sure?", :method => :delete %> it. <!-- TODO cambiar por algo mais bonito -->
       <% end %>
     </div>
 <% end %>
